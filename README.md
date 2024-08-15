@@ -6,7 +6,7 @@ by Yara Luginbühl at the University of Bern, August 2024.
 ## Description
 ### main.py
 The data taken by the LISA spectrograph is processed with this code resulting in a final spectrum. <br />
-Input data: ObjectData (Object frames, flat frames and corresponding darks) and WavelengthCalibrationData (Calibration frames with spectral lines at known wavelengths, flat frames and corresponding darks).
+Input data: ObjectData (Object frames, flat frames and corresponding darks) and WavelengthCalibrationData (Calibration frames with spectral lines at known wavelengths, flat frames and corresponding darks).<br />
 Steps of data reduction (main.py, ObjectData):
 1. Creating master frames
 2. Definition of sky background
@@ -18,7 +18,7 @@ Steps of data reduction (main.py, ObjectData):
 8. Final spectrum extraction (Object Spectrum)
 
 ### WavelengthCalibration.py
-For the wavelength calibration the parameters are calculated seperately.
+For the wavelength calibration the parameters are calculated seperately.<br />
 Steps of Wavelength Calibration (WavelengthCalibration.py, WavelengthCalibrationData):
 1. Create master frames
 2. Define slit width
