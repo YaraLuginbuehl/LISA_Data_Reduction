@@ -5,7 +5,7 @@ by Yara Luginbühl at the University of Bern, August 2024.
 
 ## Description
 ### main.py
-The data taken by this spectrograph is processed with this code resulting in a final spectrum.
+The data taken by the LISA spectrograph is processed with this code resulting in a final spectrum.
 Input data : ObjectData (Object frames, flat frames and corresponding darks) and WavelengthCalibrationData (Calibration frames with spectral lines at known wavelengths, flat frames and corresponding darks).
 Steps of data reduction (main.py, ObjectData):
 1. Creating master frames
@@ -19,7 +19,7 @@ Steps of data reduction (main.py, ObjectData):
 
 ### WavelengthCalibration.py
 For the wavelength calibration the parameters are calculated seperately.
-Steps of Wavelength Calibration (WavelengthCalibration.py,WavelengthCalibrationData)
+Steps of Wavelength Calibration (WavelengthCalibration.py,WavelengthCalibrationData):
 1. Create master frames
 2. Define slit width
 3. Hot pixel detection
@@ -30,7 +30,7 @@ Steps of Wavelength Calibration (WavelengthCalibration.py,WavelengthCalibrationD
 
 
 ### Functions.py
-All the functions are defined in the seperate python file functions.py and imported into the main from there. They consist of:
+All the functions are defined in the seperate python file Functions.py and imported into the main and calibration file from there. They consist of:
 1. lin_func
 2. gaussian
 3. multiple_file_import
@@ -40,7 +40,9 @@ All the functions are defined in the seperate python file functions.py and impor
 
 ## User Instruction
 
-The code runs for the example data, images taken of Vega at the Observatory of Zimmerwald and the University of Bern. To adjust it one needs to redefine the variables at the beginning of the main.py and the WavelengthCalibration.py documents and save the data the same way that was done here.
+The code runs for the example data, images of Vega.
+Example data: Observatory of Zimmerwald, University of Bern, 18.07.2924; ZimMAIN Telescope, Atik 460EX mono camera; Object: Vega
+To adjust it one needs to redefine the variables at the beginning of the main.py and the WavelengthCalibration.py documents and save the data the same way that was done here.
 
 ### Packages
 The following packages are needed:
@@ -51,22 +53,26 @@ The following packages are needed:
 - Fits: scipy.optimise
 
 ### Data
-The data imported in the code is to be saved as follows:
-LISA_Data_Reduction
-├───main.py
-├───WavelengthCalibration.py
-├───Functions.py
-├───Data
-│   ├───ObjectData
-│   │   ├───Dark_15s
-│   │   ├───Dark_9s
-│   │   ├───Flat_9s
-│   │   └───Vega_0_5s
-│   └───WavelengthCalibrationData
-│       ├───Bias
-│       ├───Dark_7s
-│       ├───Dark_9s
-│       ├───Flat
-└       └───Neon_new
+The data can be downloaded from this link:[Data]([https://www.google.com](https://drive.google.com/drive/folders/1YjgCHpFH25-QFr4tC89KxS_Ab49ypZY8?usp=sharing))
+The data imported in the code is to be saved as follows:<br />
+LISA_Data_Reduction <br />
+├───main.py <br />
+├───WavelengthCalibration.py<br />
+├───Functions.py<br />
+├───Data<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   ├───ObjectData<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   │   ├───Dark_15s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   │   ├───Dark_9s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   │   ├───Flat_9s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   │   └───Vega_0_5s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;   └───WavelengthCalibrationData<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Bias<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Dark_7s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Dark_9s<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Flat<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      └───Neon_new<br />
 
-
+### Possible Issues
+- One of the most frequently occurring issues were the gaussian fits. Often times the starting parameters (p0 = []) have to be adjusted to be able to generate a fit.
+- When there is empty data in the folders the following warning will be generated: WARNING: Unexpected extra padding at the end of the file.  This padding may not be preserved when saving changes. This will however not impact the functionability of the code.
+- The detect_cosmics function sometimes detects emission lines which can be adjusted by using an inmask or changing the default parameters. Another option is setting the values that are returned to nan.
