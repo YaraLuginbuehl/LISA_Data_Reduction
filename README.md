@@ -49,7 +49,7 @@ The following packages are needed:
 - General: numpy, math, matplotlib.pyplot, matplotlib.ticker
 - Paths: os
 - Hot pixel detection: astroscrappy
-- Roattion: cv2
+- Rotation: cv2
 - Fits: scipy.optimise
 
 ### Data
