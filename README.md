@@ -41,7 +41,7 @@ All the functions are defined in the seperate python file Functions.py and impor
 ## User Instruction
 
 The code runs for the example data, images of Vega.
-Example data: Observatory of Zimmerwald, University of Bern, 18.07.2924; ZimMAIN Telescope, Atik 460EX mono camera; Object: Vega
+Example data: Observatory of Zimmerwald, University of Bern, 18.07.2924; ZimMAIN Telescope, Atik 460EX mono camera; Object: Vega <br />
 To adjust it one needs to redefine the variables at the beginning of the main.py and the WavelengthCalibration.py documents and save the data the same way that was done here.
 
 ### Packages
