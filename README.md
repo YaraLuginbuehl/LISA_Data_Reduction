@@ -53,7 +53,7 @@ The following packages are needed:
 - Fits: scipy.optimise
 
 ### Data
-The data can be downloaded from this link: [Link toData]([https://www.google.com](https://drive.google.com/drive/folders/1YjgCHpFH25-QFr4tC89KxS_Ab49ypZY8?usp=sharing))
+The data can be downloaded from this link: [Link to Data](https://drive.google.com/drive/folders/1YjgCHpFH25-QFr4tC89KxS_Ab49ypZY8?usp=sharing)
 The data imported in the code is to be saved as follows:<br />
 LISA_Data_Reduction <br />
 ├───main.py <br />
