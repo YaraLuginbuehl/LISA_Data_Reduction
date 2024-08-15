@@ -101,6 +101,7 @@ def multiple_file_import(directory, nr_of_files):
 def master_frame(data):
     """
     master frame : creating a (mean) master frame from the image data.
+    
     Parameters
     ----------
     data : list of 2D numpy arrays, list with each image.
