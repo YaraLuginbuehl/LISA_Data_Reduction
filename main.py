@@ -14,10 +14,6 @@ from scipy.optimize import curve_fit
 import astroscrappy
 import os
 
-from Functions import multiple_file_import, master_frame, gaussian, sort, OutlierDetection
-from WavelengthCalibration import Lambda, t as t_lambda
-
-
 # The following code is a data reduction pipeline for the LISA, Sheylak Instruments. 
 # It entails the following steps:
     # Import files: Object, Dark (Exp: Object), Flat, Dark (Exp: Flat) 
@@ -43,6 +39,9 @@ Object_alt_mean : 1D numpy array, final dark and sky background corrected spectr
 # Defining working directory: 
 working_dir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(working_dir)
+
+from Functions import multiple_file_import, master_frame, gaussian, sort, OutlierDetection
+from WavelengthCalibration import Lambda, t as t_lambda
 
 # Defining directory to data: 
 ObjectData_directory = os.path.join("Data","ObjectData")
@@ -70,10 +69,12 @@ right = 1500
 
 slitheight = bottom - top
 
+# OBSERVATION PARAMETERS
 # exp_time_object : int, exposuret time of object frames [seconds]
 # exp_time_dark : int, exposuret time of dark frames [seconds]
 exp_time_object = 0.5
 exp_time_dark = 15
+object_name = 'Vega'
 
 # SKY BACKGROUND
 # SB_t : int, upper bound of sky background cutout.
@@ -237,14 +238,14 @@ Object_alt_mean = Object_alt_mean/exp_time_object
 # Creating plots of the final spectra:
 fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_corr_mean, "k")
-plt.title("Vega Spectrum (Dark+SB)")
+plt.title(f"{objectname} Spectrum (Dark+SB)")
 plt.xlabel("Wavelength [nm]")
 plt.ylabel("Intensity [arb. units]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
 
 fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_alt_mean, "k")
-plt.title("Vega Spectrum (Dark+Flat+SB)")
+plt.title(f"{objectname} Spectrum (Dark+Flat+SB)")
 plt.xlabel("Wavelength [nm]")
 plt.ylabel("Intensity [arb. units]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
