@@ -341,5 +341,5 @@ plt.xlabel("Wavelength [nm]")
 plt.ylabel("Normalised Radiation")
 
 # WIEN'S LAW
-Wien = (0.002879/9500)*10**9
+Wien = (0.002879/temperature)*10**9
 
