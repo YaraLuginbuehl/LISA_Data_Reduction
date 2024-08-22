@@ -29,7 +29,7 @@ import matplotlib.patches as patches
     # Final spectrum extraction
     
 # WITH PLOTS: This code is the same process as the main.py but additionally creates plots describing the steps.
-# new: package matplotlib.patches, variable temperature, function black_body_radiation, last step Black Body Radiation and Wien.
+# new: package matplotlib.patches, variables temperature and object_is_blackbody, function black_body_radiation, last step Black Body Radiation and Wien.
 
 """
 Results
@@ -102,6 +102,7 @@ object_name = 'Vega'
 SB_t = 1000
 
 # ADDITIONAL VARIABLE FOR PLOTS
+object_is_blackbody = True
 temperature = 9500 #Kelvin
 
 
@@ -335,15 +336,18 @@ ax.xaxis.set_major_locator(MultipleLocator(50))
 
 #%% BLACKBODY SPECTRUM
 
-B = black_body_radiation(wavelength = lambda_target*10**(-9),temperature = temperature)
-B_norm = B/np.max(B)
+if object_is_blackbody:
+    B = black_body_radiation(wavelength = lambda_target*10**(-9),temperature = temperature)
+    B_norm = B/np.max(B)
+    
+    plt.figure()
+    plt.plot(lambda_target,B_norm, "k")
+    plt.title(f"{object_name}: Black body radiation at T = {temperature}")
+    plt.xlabel("Wavelength [nm]")
+    plt.ylabel("Normalised Radiation")
+    
+    # WIEN'S LAW
+    Wien = (0.002879/9500)*10**9
 
-plt.figure()
-plt.plot(lambda_target,B_norm, "k")
-plt.title(f"{object_name}: Black body radiation at T = {temperature}")
-plt.xlabel("Wavelength [nm]")
-plt.ylabel("Normalised Radiation")
 
-# WIEN'S LAW
-Wien = (0.002879/temperature)*10**9
 
