@@ -80,6 +80,6 @@ LISA_Data_Reduction <br />
 If new data is acquired it can be used in the code as follows: All the data from the observation (object frames, flat frames, dark (object), dark (flat)) are to be saved in individual folders in the ObjectData folder. Similarly, the data used for the wavelength calibration is saved in the WavelengthCalibrationData folder. If the folders containing the images have new names, this can be solved in the code: In the subsection "IMPORT DATA" in main.py (or main_withplots.py) and WavelengthCalibration.py one can simply change the variables of the mulitple_file_import function: In the directory one has to change the folder name and the nr_of_files has to be changed to the new number of files in each folder.<br />
 
 ### Possible Issues
-- One of the most frequently occurring issues were the gaussian fits. Often times the starting parameters (p0 = []) have to be adjusted to be able to generate a fit.
+- One of the most frequently occurring issues were the gaussian fits. Often times the starting parameters (p0 = [...]) have to be adjusted to be able to generate a fit.
 - When there is empty data in the folders the following warning will be generated: WARNING: Unexpected extra padding at the end of the file.  This padding may not be preserved when saving changes. This will however not impact the functionability of the code.
 - The detect_cosmics function sometimes detects emission lines which can be adjusted by using an inmask or changing the default parameters. Another option is setting the values that are returned to nan.
