@@ -72,7 +72,6 @@ LISA_Data_Reduction <br />
 &nbsp;&nbsp;&nbsp;&nbsp;   │   ├───Flat_9s<br />
 &nbsp;&nbsp;&nbsp;&nbsp;   │   └───Vega_0_5s<br />
 &nbsp;&nbsp;&nbsp;&nbsp;   └───WavelengthCalibrationData<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Bias<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Dark_7s<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Dark_9s<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      ├───Flat<br />
