@@ -9,6 +9,8 @@ import numpy as np
 import glob
 from astropy.io import fits
 import os
+from scipy.constants import h, c, k, pi
+
 
 
 def lin_func(a,b,x):
@@ -192,3 +194,21 @@ def sort(data):
     data_new1, data_new2, data_new3 = zip(*sorted_pairs)
     
     return data_new1, data_new2, data_new3
+
+
+def black_body_radiation(wavelength, temperature):
+    """
+    black_body_radiation : calculating the black body radiation at a given temperature and wavelength array.
+
+    Parameters
+    ----------
+    wavelength : array of floats, wavelengths [m].
+    temperature : float, temperature of black body [K].
+
+    Returns
+    -------
+    array of floats, spectral radiance.
+    
+    """
+
+    return (2*h*c**2) / (wavelength**5 * (np.exp((h*c) / (wavelength*k*temperature)) - 1))
