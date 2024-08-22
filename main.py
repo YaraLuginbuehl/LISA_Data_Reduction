@@ -80,6 +80,9 @@ object_name = 'Vega'
 # SB_t : int, upper bound of sky background cutout.
 SB_t = 1000
 
+# PLOTS (set fontsize)
+plt.rcParams['font.size'] = 30
+
 
 #%% IMPORT FILES
 
