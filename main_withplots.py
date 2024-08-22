@@ -49,6 +49,8 @@ Plots :
 Wien : Position of maximum calculated according to Wien's law
 
 """
+
+
 #%% DIRECTORY
 
 # Defining working directory: 
@@ -63,6 +65,7 @@ ObjectData_directory = os.path.join("Data","ObjectData")
 
 # PLOTS (set fontsize)
 plt.rcParams['font.size'] = 30
+
 
 #%% DEFINITION OF VARIABLES
 
@@ -100,6 +103,7 @@ SB_t = 1000
 
 # ADDITIONAL VARIABLE FOR PLOTS
 temperature = 9500 #Kelvin
+
 
 #%% IMPORT FILES
 
