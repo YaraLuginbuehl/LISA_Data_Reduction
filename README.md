@@ -32,9 +32,6 @@ Steps of Wavelength Calibration (WavelengthCalibration.py, WavelengthCalibration
 ### main_withplots.py
 This code is the same as the main.py with some additional steps: There are five additional plots created to visualise the relevant steps. If the observed object is a star (object_is_blackbody = True), there is an additional analysis which calculates the blackbody spectrum (Planck's law) and the position of maximum (Wien's law) needing the tempreature as a variable. There is one additional package imported (matplotlib.patches).
 
-These codes are visualised in the following image:<br />
-![main_visualisation](https://github.com/user-attachments/assets/25ba03fe-7c21-42b7-b091-6481ae08dc98)
-
 ### Functions.py
 All the functions are defined in the seperate python file Functions.py and imported into the main and calibration file from there. They consist of: <br />
 1. lin_func
@@ -44,6 +41,10 @@ All the functions are defined in the seperate python file Functions.py and impor
 5. OutlierDetection
 6. sort
 7. black_body_radiation
+
+The codes and their outputs are visualised in the following image:<br />
+<br />
+![main_visualisation](https://github.com/user-attachments/assets/25ba03fe-7c21-42b7-b091-6481ae08dc98)
 
 ## User Instruction
 
