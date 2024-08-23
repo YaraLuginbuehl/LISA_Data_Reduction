@@ -4,8 +4,6 @@ This code is part of the Bachelors thesis "Astronomical Spectroscopy with the Lo
 by Yara Luginbühl at the University of Bern, August 2024.
 
 ## Description
-The code is visualised in the following image: ![main_visualisation](https://github.com/user-attachments/assets/25ba03fe-7c21-42b7-b091-6481ae08dc98)
-
 
 ### main.py
 The data taken by the LISA spectrograph is processed with this code resulting in a final spectrum. <br />
@@ -34,8 +32,11 @@ Steps of Wavelength Calibration (WavelengthCalibration.py, WavelengthCalibration
 ### main_withplots.py
 This code is the same as the main.py with some additional steps: There are five additional plots created to visualise the relevant steps. If the observed object is a star (object_is_blackbody = True), there is an additional analysis which calculates the blackbody spectrum (Planck's law) and the position of maximum (Wien's law) needing the tempreature as a variable. There is one additional package imported (matplotlib.patches).
 
+These codes are visualised in the following image:<br />
+![main_visualisation](https://github.com/user-attachments/assets/25ba03fe-7c21-42b7-b091-6481ae08dc98)
+
 ### Functions.py
-All the functions are defined in the seperate python file Functions.py and imported into the main and calibration file from there. They consist of:
+All the functions are defined in the seperate python file Functions.py and imported into the main and calibration file from there. They consist of: <br />
 1. lin_func
 2. gaussian
 3. multiple_file_import
