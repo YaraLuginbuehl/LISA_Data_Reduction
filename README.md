@@ -4,6 +4,9 @@ This code is part of the Bachelors thesis "Astronomical Spectroscopy with the Lo
 by Yara Luginbühl at the University of Bern, August 2024.
 
 ## Description
+The code is visualised in the following image: ![main_visualisation](https://github.com/user-attachments/assets/25ba03fe-7c21-42b7-b091-6481ae08dc98)
+
+
 ### main.py
 The data taken by the LISA spectrograph is processed with this code resulting in a final spectrum. <br />
 Input data: ObjectData (Object frames, flat frames and corresponding darks) and WavelengthCalibrationData (Calibration frames with spectral lines at known wavelengths, flat frames and corresponding darks).<br />
