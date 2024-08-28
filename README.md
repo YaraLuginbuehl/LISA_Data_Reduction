@@ -22,7 +22,7 @@ Steps of data reduction (main.py, ObjectData):
 For the wavelength calibration the parameters are calculated seperately.<br />
 Steps of Wavelength Calibration (WavelengthCalibration.py, WavelengthCalibrationData):
 1. Create master frames
-2. Define slit width
+2. Define line extraction window
 3. Hot pixel detection
 4. Image reduction
 5. Geometric correction
