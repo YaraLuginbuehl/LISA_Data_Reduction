@@ -44,7 +44,7 @@ All the functions are defined in the seperate python file Functions.py and impor
 
 The codes and their outputs are visualised in the following image:<br />
 <br />
-![Uploading main_visualisation_corr1.png…]()
+![main_visualisation_corr1](https://github.com/user-attachments/assets/5f87fcc9-c6c5-421e-9c3e-83d2342e9dfc)
 
 ## User Instruction
 
