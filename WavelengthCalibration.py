@@ -20,7 +20,7 @@ from Functions import lin_func, multiple_file_import, master_frame, gaussian, so
     # Import files: Calibration, Dark (Exp: Calibration), Flat, Dark (Exp: Flat) 
     # Sort files and detect outliers
     # Create master frames
-    # Define slitwidth
+    # Define line extraction window
     # Hot pixel detection
     # Image reduction
     # Geometric correction
@@ -56,7 +56,7 @@ xlen = 2749
 y = np.arange(1,ylen+1)
 x = np.arange(1,xlen+1)
 
-# DEFINITION OF SLITWIDTH
+# DEFINITION OF LINE EXTRACTION WINDOW
 # brightest_line_left : int, left border of brightest line.
 # brighetst_line_right : int, right border of brightest line.
 brightest_line_left = 885
@@ -106,8 +106,8 @@ Flat_m = master_frame(Flat[1])
 Cal_m = master_frame(Cal[1])
 
 
-#%%  DEFINE SLITHEIGHT
-# Slitwidth is defined as the FWHM of the gaussian fit of the brightest line.
+#%%  DEFINE LINE EXTRACTION WINDOW
+# Line extraction window is defined as the FWHM of the gaussian fit of the brightest line.
 
 # Defining the curve to be fit:
 slit_image = np.zeros(ylen)
@@ -121,9 +121,9 @@ FWHMbild = 2 * np.sqrt(2*np.log(2))*abs(paramsbild[2])
 b = int(paramsbild[1] + FWHMbild/2)
 t = int(paramsbild[1] - FWHMbild/2)
 
-# Defining the final slitwidth and its error:
-slitwidth = int(b - t)
-sigma_slitwidth = 2 * np.sqrt(2*np.log(2))*np.sqrt(covariancebild[2,2])
+# Defining the final line extraction window and its error:
+window = int(b - t)
+sigma_window = 2 * np.sqrt(2*np.log(2))*np.sqrt(covariancebild[2,2])
 
 
 # Cropping the images:
@@ -162,13 +162,13 @@ Cal_corr = (Cal_m - Dark_Cal_m)/Flat_norm
 
 
 #%% WAVELENGTH CALIBRATION
-# Creating a gaussian fit of each line for each y-height in the slitwidth,
+# Creating a gaussian fit of each line for each y-height in the line extraction window,
 # Every 100 steps the line borders are moved since there is a tilt in the lines. 
 
 line_nr = len(line_borders)
-b_lines = np.zeros((slitwidth, line_nr))
+b_lines = np.zeros((window, line_nr))
 
-for i in range(slitwidth):
+for i in range(window):
     for j in range(line_nr):
 
         left, right = line_borders[j]
@@ -181,10 +181,10 @@ for i in range(slitwidth):
         line_borders = [(start+1, end+1) for start, end in line_borders]
     
 # Creating a linear fit of b parameters with wavelengths for each y-height:
-wavelength_fit = np.zeros((slitwidth, line_nr))
-Lambda = np.zeros((slitwidth,xlen))
+wavelength_fit = np.zeros((window, line_nr))
+Lambda = np.zeros((window,xlen))
 
-for i in range(slitwidth):
+for i in range(window):
     var, cov = curve_fit(lin_func, b_lines[i,:],wavelengths)
     err = np.sqrt(np.diag(cov))
     wavelength_fit[i] = var[0] + var[1]*b_lines[i,:]
@@ -197,13 +197,13 @@ lambda_max = int(np.mean(Lambda[:,-1]))
 lambda_target = np.linspace(lambda_min, lambda_max, (2*xlen))
 
 # Interpolating the calibration frame on the new wavelength grid:
-Cal_image = np.zeros((slitwidth, 2*xlen))
-for i in range(slitwidth):
+Cal_image = np.zeros((window, 2*xlen))
+for i in range(window):
     Cal_image[i,:] = np.interp(lambda_target, Lambda[i,:],Cal_corr[i,:])
 
 
 #%% SPECTRUM EXTRACTION
-# Taking the mean over the slitwidth to extract final spectrum (Cal_image_mean)
+# Taking the mean over the window to extract final spectrum (Cal_image_mean)
 
 Cal_image_mean = np.zeros(2*xlen)
 
