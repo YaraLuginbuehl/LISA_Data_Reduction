@@ -241,16 +241,16 @@ Object_alt_mean = Object_alt_mean/exp_time_object
 # Creating plots of the final spectra:
 fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_corr_mean, "k")
-plt.title(f"{objectname} Spectrum (Dark+SB)")
+plt.title(f"{objectname} Spectrum (Dark+Flat+SB)")
 plt.xlabel("Wavelength [nm]")
-plt.ylabel("Intensity [arb. units]")
+plt.ylabel("Intensity [counts/s]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
 
 fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_alt_mean, "k")
-plt.title(f"{objectname} Spectrum (Dark+Flat+SB)")
+plt.title(f"{objectname} Spectrum (Dark+SB)")
 plt.xlabel("Wavelength [nm]")
-plt.ylabel("Intensity [arb. units]")
+plt.ylabel("Intensity [counts/s]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
 
 
