@@ -289,14 +289,14 @@ plt.plot(y, aperture_image, "k:", markersize=1.5, label="Measurement")
 
 # Plot of Gaussian fit:
 fitbild = gaussian(y, paramsbild[0], paramsbild[1], paramsbild[2])
-plt.plot(y, fitbild, "k--", markersize=0.5, label="Gaussian Fit")
+plt.plot(y, fitbild, "r", markersize=0.5, label="Gaussian Fit")
 
 # Plot of aperture definition:
 def_aperture = np.zeros(slitheight)
 for i in range(slitheight):
     if (t-top <= i <= b-top):
         def_aperture[i] = np.max(fitbild)
-plt.plot(y, def_aperture,"k", linewidth=1, label="FWHM")
+plt.plot(y, def_aperture,color = "#2D2DC4", linewidth=1, label="FWHM")
 plt.title(f"{object_name}: Object Aperture")
 plt.xlabel("y [px]")
 plt.ylabel("Intensity [arb. units]")
@@ -323,14 +323,14 @@ fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_corr_mean, "k")
 plt.title(f"{object_name} Spectrum (Dark+Flat+SB)")
 plt.xlabel("Wavelength [nm]")
-plt.ylabel("Intensity [arb. units]")
+plt.ylabel("Intensity [counts/s]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
 
 fig, ax = plt.subplots()
 ax.plot(lambda_target,Object_alt_mean, "k")
 plt.title(f"{object_name} Spectrum (Dark+SB)")
 plt.xlabel("Wavelength [nm]")
-plt.ylabel("Intensity [arb. units]")
+plt.ylabel("Intensity [counts/s]")
 ax.xaxis.set_major_locator(MultipleLocator(50))
 
 
